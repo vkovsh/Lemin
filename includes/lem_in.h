@@ -50,6 +50,7 @@ typedef struct	s_lemin
 	t_ant		**ants;
 	t_list		*rooms;
 	t_list		*links;
+	char		**hex_str;
 }				t_lemin;
 
 void			readdata(void);
