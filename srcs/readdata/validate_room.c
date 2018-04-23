@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   validate_room.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vkovsh <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/23 14:24:50 by vkovsh            #+#    #+#             */
+/*   Updated: 2018/04/23 14:24:54 by vkovsh           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lem_in.h"
+
 struct s_lemin	*g_lemin;
 
 static inline bool	is_unique(char **rd)
@@ -52,5 +65,5 @@ char				**validate_room(char *line)
 		if (!is_unique(rd))
 			return (NULL);
 	}
-	return (rd);
+	return (NULL);
 }

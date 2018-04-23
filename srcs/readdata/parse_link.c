@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_link.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vkovsh <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/23 14:23:42 by vkovsh            #+#    #+#             */
+/*   Updated: 2018/04/23 14:23:51 by vkovsh           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lem_in.h"
+
 struct s_lemin	*g_lemin;
 
 static inline void	del_pair(char **pair)
@@ -17,7 +30,7 @@ bool				parse_link(char *line)
 		return (false);
 	ft_bzero(&link, sizeof(link));
 	pair = ft_strsplit(line, '-');
-	if(!(link.room1 = get_room_by_name(pair[0])) ||
+	if (!(link.room1 = get_room_by_name(pair[0])) ||
 		!(link.room2 = get_room_by_name(pair[1])))
 		return (false);
 	del_pair(pair);
