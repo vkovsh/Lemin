@@ -28,11 +28,12 @@ SRC_NAME			=	lem_in.c 				\
 						is_acyclic.c 			\
 						move_ants.c
 
-RD_NAME				=	readdata.c 			\
-						validate_link.c 	\
-						parse_link.c 		\
-						validate_room.c 	\
-						parse_room.c
+RD_NAME				=	readdata.c 				\
+						validate_link.c 		\
+						parse_link.c 			\
+						validate_room.c 		\
+						parse_room.c			\
+						add_line_to_output.c
 
 all: $(NAME)
 

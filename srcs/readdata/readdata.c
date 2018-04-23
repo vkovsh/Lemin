@@ -75,11 +75,14 @@ void		readdata()
 	if (!(g_lemin = (t_lemin *)malloc(sizeof(t_lemin))))
 		return ;
 	ft_bzero(g_lemin, sizeof(t_lemin));
+	g_lemin->hex_str = ft_strnew(0);
 	if (get_next_line(0, &line) != 1
 		|| (g_lemin->ant_count = ft_atoi(line)) < 1)
 		force_quit();
+	add_line_to_output(line);
 	while ((i = get_next_line(0, &line) == 1))
 	{
+		add_line_to_output(line);
 		if (line[0] == '#')
 		{
 			if (!ft_strcmp(line, "##start"))
@@ -103,6 +106,7 @@ void		readdata()
 			ft_strdel(&line);
 			while ((i = get_next_line(0, &line) == 1))
 			{
+				add_line_to_output(line);
 				if (line[0] == '#')
 				{
 					ft_strdel(&line);

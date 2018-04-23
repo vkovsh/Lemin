@@ -36,7 +36,10 @@ int 	parse_room(char *line, int flag, int id)
 			g_lemin->end_id = id;
 		while (get_next_line(0, &line) == 1
 			&& line[0] == '#')
-			ft_strdel(&line);
+			{
+				add_line_to_output(line);
+				ft_strdel(&line);
+			}
 	}
 	if (*line)
 	{
@@ -45,6 +48,7 @@ int 	parse_room(char *line, int flag, int id)
 			ft_printf("ERROR\n");
 			exit(0);
 		}
+		add_line_to_output(line);
 		ft_bzero(&room, sizeof(t_room));
 		room.name = ft_strdup(room_data[0]);
 		room.x = ft_atoi(room_data[1]);

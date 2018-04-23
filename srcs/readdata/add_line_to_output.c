@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lem_in.c                                           :+:      :+:    :+:   */
+/*   add_line_to_output.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkovsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/23 14:23:22 by vkovsh            #+#    #+#             */
-/*   Updated: 2018/04/23 14:23:28 by vkovsh           ###   ########.fr       */
+/*   Created: 2018/04/23 18:08:23 by vkovsh            #+#    #+#             */
+/*   Updated: 2018/04/23 18:08:24 by vkovsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,11 @@
 
 struct s_lemin	*g_lemin;
 
-int			main(void)
+void        add_line_to_output(const char *line)
 {
-	g_lemin = NULL;
-	readdata();
-	if (g_lemin)
-	{
-		if (g_lemin->start_id == g_lemin->end_id ||
-			!is_acyclic() || !check_connectivity())
-				force_quit();
-		ft_printf("%s\n", g_lemin->hex_str);
-		while (move_ants())
-			ft_printf("\n");
-	}
-	return (0);
+    char    *line_with_break;
+
+    line_with_break = ft_strjoin(line, "\n");
+    g_lemin->hex_str = ft_strjoin_free(g_lemin->hex_str,
+    line_with_break, TRUE, TRUE);
 }
