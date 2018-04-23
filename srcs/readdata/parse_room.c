@@ -27,6 +27,7 @@ int 	parse_room(char *line, int flag, int id)
 	char	**room_data;
 	t_room	room;
 
+	room_data = NULL;
 	if (flag)
 	{
 		if (flag == 1)

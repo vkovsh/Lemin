@@ -59,11 +59,12 @@ char				**validate_room(char *line)
 
 	char			**rd;
 
+	rd = NULL;
 	if (is_input_correct(line))
 	{
 		rd = ft_strsplit(line, ' ');
 		if (!is_unique(rd))
 			return (NULL);
 	}
-	return (NULL);
+	return (rd);
 }

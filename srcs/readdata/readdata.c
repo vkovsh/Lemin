@@ -74,7 +74,7 @@ void		readdata()
 	line = NULL;
 	if (!(g_lemin = (t_lemin *)malloc(sizeof(t_lemin))))
 		return ;
-	ft_bzero(g_lemin, sizeof(g_lemin));
+	ft_bzero(g_lemin, sizeof(t_lemin));
 	if (get_next_line(0, &line) != 1
 		|| (g_lemin->ant_count = ft_atoi(line)) < 1)
 		force_quit();
