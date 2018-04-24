@@ -26,7 +26,8 @@ SRC_NAME			=	lem_in.c 				\
 						calculate_matrix.c 		\
 						check_connectivity.c 	\
 						is_acyclic.c 			\
-						move_ants.c
+						move_ants.c				\
+						elementary_solution.c
 
 RD_NAME				=	readdata.c 				\
 						validate_link.c 		\

@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lem_in.c                                           :+:      :+:    :+:   */
+/*   elementary_solution.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkovsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/23 14:23:22 by vkovsh            #+#    #+#             */
-/*   Updated: 2018/04/23 14:23:28 by vkovsh           ###   ########.fr       */
+/*   Created: 2018/04/24 14:33:36 by vkovsh            #+#    #+#             */
+/*   Updated: 2018/04/24 14:33:38 by vkovsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-struct s_lemin	*g_lemin;
+struct s_lemin  *g_lemin;
 
-int			main(void)
+void		elementary_solution()
 {
-	g_lemin = NULL;
-	readdata();
-	if (g_lemin)
+	int		sid;
+	int		eid;
+	int		**am;
+	int		i;
+	t_room	*r;
+
+	am = g_lemin->adjacency_matrix;
+	sid = g_lemin->start_id;
+	eid = g_lemin->end_id;
+	if (am[sid][eid] || am[eid][sid])
 	{
-		if (g_lemin->start_id == g_lemin->end_id ||
-			!is_acyclic())
-				force_quit();
-		if (!check_connectivity())
-			if (calculate_matrix() == -1)
-				force_quit();
-		ft_printf("%s\n", g_lemin->hex_str);
-		elementary_solution();
-		while (move_ants())
-			ft_printf("\n");
+		i = -1;
+		r = get_room_by_id(eid);
+		while (++i < g_lemin->ant_count)
+			ft_printf("L%d-%s ", i + 1, r->name);
+		ft_printf("\n");
+		exit(0);
 	}
-	return (0);
 }

@@ -36,6 +36,7 @@ typedef struct	s_ant
 {
 	int			id;
 	int			room_id;
+	int			last_room_id;
 	t_list		*path;
 }				t_ant;
 
@@ -50,7 +51,7 @@ typedef struct	s_lemin
 	t_ant		**ants;
 	t_list		*rooms;
 	t_list		*links;
-	char		**hex_str;
+	char		*hex_str;
 }				t_lemin;
 
 void			readdata(void);
@@ -67,4 +68,6 @@ char			**validate_room(char *line);
 int				parse_room(char *line, int flag, int id);
 void			force_quit(void);
 void			copy_etalon_matrix(void);
+void			add_line_to_output(const char *line);
+void			elementary_solution(void);
 #endif

@@ -78,7 +78,6 @@ t_list		*find_shortest_way(t_ant *ant)
 	if (is_isolated(ant))
 		return (NULL);
 	d = calculate_matrix();
-	//ft_printf("%d\n", d);
 	if (d != -1)
 	{
 		path = build_path(d);

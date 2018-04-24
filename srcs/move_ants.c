@@ -76,6 +76,7 @@ void		forward_ant(t_ant **ant)
 	(*ant)->path = tmp->next;
 	free((int *)(tmp->content));
 	free(tmp);
+	(*ant)->last_room_id = (*ant)->room_id;
 	(*ant)->room_id = *((int *)(((*ant)->path)->content));
 	if (((*ant)->room_id != g_lemin->end_id))
 	{
@@ -116,6 +117,23 @@ void		print_path(t_ant *ant)
 	}
 }
 
+void		copy_path(t_ant *ant1, t_ant *ant2)
+{
+	t_list	*path;
+	t_list	*new_elem;
+
+	path = ant1->path;
+	while (path)
+	{
+		new_elem = ft_lstnew((path->content), sizeof(int));
+		ft_lstadd(&(ant2->path), new_elem);
+		path = path->next;
+	}
+	ft_lstrev(&(ant2->path));
+	new_elem = ft_lstnew(&(ant1->last_room_id), sizeof(int));
+	ft_lstadd(&(ant2->path), new_elem);
+}
+
 int		move_ants()
 {
 	int	i;
@@ -130,7 +148,10 @@ int		move_ants()
 		if ((g_lemin->ants)[i]->path == NULL)
 		{
 			if (!(g_lemin->ants[i]->path = find_shortest_way(g_lemin->ants[i])))
+			{
+				copy_path(g_lemin->ants[i - 1], g_lemin->ants[i]);
 				break ;
+			}
 		}
 		if ((g_lemin->ants)[i]->path != NULL)
 		{
