@@ -14,10 +14,10 @@
 
 struct s_lemin	*g_lemin;
 
-static void	set_to_binary()
+static void		set_to_binary(void)
 {
-	int		i;
-	int		j;
+	int			i;
+	int			j;
 
 	i = -1;
 	while (++i < g_lemin->room_count)
@@ -31,10 +31,10 @@ static void	set_to_binary()
 	}
 }
 
-static void	prepare_for_calculation()
+static void		prepare_for_calculation(void)
 {
-	int		i;
-	int		j;
+	int			i;
+	int			j;
 
 	i = -1;
 	set_to_binary();
@@ -47,12 +47,12 @@ static void	prepare_for_calculation()
 				g_lemin->adjacency_matrix[i][j])
 				g_lemin->adjacency_matrix[i][j]++;
 	}
-}	
+}
 
-bool	wave_row(int i, int d)
+bool			wave_row(int i, int d)
 {
-	int	k;
-	int	j;
+	int			k;
+	int			j;
 
 	j = -1;
 	while (++j < g_lemin->room_count)
@@ -69,7 +69,7 @@ bool	wave_row(int i, int d)
 				}
 				if (k != j && g_lemin->adjacency_matrix[i][k] == 1)
 				{
-					g_lemin->adjacency_matrix[i][k]= d + 1;
+					g_lemin->adjacency_matrix[i][k] = d + 1;
 					if (k == g_lemin->end_id)
 						return (true);
 				}
@@ -78,10 +78,10 @@ bool	wave_row(int i, int d)
 	return (false);
 }
 
-int		calculate_matrix()
+int				calculate_matrix(void)
 {
-	int	d;
-	int	i;
+	int			d;
+	int			i;
 
 	prepare_for_calculation();
 	i = 0;

@@ -28,6 +28,9 @@ SRC_NAME			=	lem_in.c 					\
 						is_acyclic.c 				\
 						move_ants.c					\
 						elementary_solution.c		\
+						build_path.c				\
+						close_room.c				\
+						open_room.c
 
 RD_NAME				=	readdata.c 					\
 						validate_link.c 			\
@@ -36,7 +39,8 @@ RD_NAME				=	readdata.c 					\
 						parse_room.c				\
 						add_line_to_output.c		\
 						build_adjacency_matrix.c	\
-						set_ants.c
+						set_ants.c					\
+						print_move.c
 
 all: $(NAME)
 

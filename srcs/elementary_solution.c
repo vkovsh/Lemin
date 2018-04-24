@@ -12,9 +12,9 @@
 
 #include "lem_in.h"
 
-struct s_lemin  *g_lemin;
+struct s_lemin	*g_lemin;
 
-void		elementary_solution()
+void		elementary_solution(void)
 {
 	int		sid;
 	int		eid;

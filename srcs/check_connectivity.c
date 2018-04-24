@@ -16,22 +16,22 @@ struct s_lemin	*g_lemin;
 
 static int	dfs(int u, bool **visited)
 {
-	int		visitedVerticles;
+	int		visited_verticles;
 	int		j;
 
-	visitedVerticles = 1;
+	visited_verticles = 1;
 	(*visited)[u] = true;
 	j = -1;
 	while (++j < g_lemin->room_count)
 	{
 		if ((g_lemin->adjacency_matrix)[u][j])
 			if ((*visited)[j] == false)
-				visitedVerticles += dfs(j, visited);
+				visited_verticles += dfs(j, visited);
 	}
-	return (visitedVerticles);
+	return (visited_verticles);
 }
 
-bool		check_connectivity()
+bool		check_connectivity(void)
 {
 	bool	*visited;
 	bool	flag;

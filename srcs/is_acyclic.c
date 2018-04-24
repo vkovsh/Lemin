@@ -14,7 +14,7 @@
 
 struct s_lemin	*g_lemin;
 
-bool	is_acyclic()
+bool	is_acyclic(void)
 {
 	int	count;
 	int	i;

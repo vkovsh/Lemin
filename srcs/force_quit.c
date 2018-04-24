@@ -12,7 +12,7 @@
 
 #include "lem_in.h"
 
-void	force_quit()
+void	force_quit(void)
 {
 	ft_printf("ERROR\n");
 	exit(0);

@@ -72,4 +72,8 @@ void			add_line_to_output(const char *line);
 void			elementary_solution(void);
 void			build_adjacency_matrix(void);
 void			set_ants(void);
+t_list			*build_path(int d);
+void			print_move(t_ant *ant);
+void			close_room(int room_id);
+void			open_room(int room_id);
 #endif

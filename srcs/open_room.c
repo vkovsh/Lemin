@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lem_in.c                                           :+:      :+:    :+:   */
+/*   open_room.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkovsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/23 14:23:22 by vkovsh            #+#    #+#             */
-/*   Updated: 2018/04/23 14:23:28 by vkovsh           ###   ########.fr       */
+/*   Created: 2018/04/24 17:20:46 by vkovsh            #+#    #+#             */
+/*   Updated: 2018/04/24 17:20:49 by vkovsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,24 @@
 
 struct s_lemin	*g_lemin;
 
-int	main(void)
+void		open_room(int room_id)
 {
-	g_lemin = NULL;
-	readdata();
-	if (g_lemin)
+	t_list	*links;
+	t_link	*link;
+	int		id1;
+	int		id2;
+
+	links = g_lemin->links;
+	while (links)
 	{
-		if (g_lemin->start_id == g_lemin->end_id || !is_acyclic())
-			force_quit();
-		if (!check_connectivity())
-			if (calculate_matrix() == -1)
-				force_quit();
-		ft_printf("%s\n", g_lemin->hex_str);
-		elementary_solution();
-		while (move_ants())
-			ft_printf("\n");
+		link = (t_link *)(links->content);
+		id1 = link->room1->id;
+		id2 = link->room2->id;
+		if (id1 == room_id || id2 == room_id)
+		{
+			g_lemin->adjacency_matrix[id1][id2] = 1;
+			g_lemin->adjacency_matrix[id2][id1] = 1;
+		}
+		links = links->next;
 	}
-	return (0);
 }
