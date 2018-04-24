@@ -35,12 +35,10 @@ static void	command_management(char **line, int flag, int id)
 	}
 }
 
-static void	add_room_to_list(char *line,
-			char **room_data, int flag, int id)
+static void	add_room_to_list(char **room_data, int flag, int id)
 {
 	t_room	room;
 
-	add_line_to_output(line);
 	ft_bzero(&room, sizeof(t_room));
 	room.name = ft_strdup(room_data[0]);
 	room.x = ft_atoi(room_data[1]);
@@ -61,7 +59,9 @@ int			parse_room(char *line, int flag, int id)
 	{
 		if (!(room_data = validate_room(line)))
 			force_quit();
-		add_room_to_list(line, room_data, flag, id);
+		if (flag)
+			add_line_to_output(line);
+		add_room_to_list(room_data, flag, id);
 		del_room_data(room_data);
 	}
 	return (1);
