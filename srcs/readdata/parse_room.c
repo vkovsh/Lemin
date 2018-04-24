@@ -59,10 +59,13 @@ int			parse_room(char *line, int flag, int id)
 	{
 		if (!(room_data = validate_room(line)))
 			force_quit();
-		if (flag)
-			add_line_to_output(line);
 		add_room_to_list(room_data, flag, id);
 		del_room_data(room_data);
+		if (flag)
+		{
+			add_line_to_output(line);
+			ft_strdel(&line);
+		}
 	}
 	return (1);
 }
