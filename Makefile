@@ -18,23 +18,25 @@ OBJ_NAME			=	$(SRC_NAME:.c=.o)
 
 OBJ_NAME			+=	$(RD_NAME:.c=.o)
 
-SRC_NAME			=	lem_in.c 				\
-						force_quit.c 			\
-						get_room_by_id.c 		\
-						get_room_by_name.c 		\
-						find_way.c 				\
-						calculate_matrix.c 		\
-						check_connectivity.c 	\
-						is_acyclic.c 			\
-						move_ants.c				\
-						elementary_solution.c
+SRC_NAME			=	lem_in.c 					\
+						force_quit.c 				\
+						get_room_by_id.c 			\
+						get_room_by_name.c 			\
+						find_way.c 					\
+						calculate_matrix.c 			\
+						check_connectivity.c 		\
+						is_acyclic.c 				\
+						move_ants.c					\
+						elementary_solution.c		\
 
-RD_NAME				=	readdata.c 				\
-						validate_link.c 		\
-						parse_link.c 			\
-						validate_room.c 		\
-						parse_room.c			\
-						add_line_to_output.c
+RD_NAME				=	readdata.c 					\
+						validate_link.c 			\
+						parse_link.c 				\
+						validate_room.c 			\
+						parse_room.c				\
+						add_line_to_output.c		\
+						build_adjacency_matrix.c	\
+						set_ants.c
 
 all: $(NAME)
 

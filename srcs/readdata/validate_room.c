@@ -37,8 +37,8 @@ static inline bool	is_input_correct(char *line)
 	char			*first_space;
 	char			*second_space;
 
-	if (*line == 'L' || 
-		!(first_space = ft_strchr(line, ' ')) ||
+	if (*line == 'L' ||
+	!(first_space = ft_strchr(line, ' ')) ||
 		!(second_space = ft_strchr(first_space + 1, ' ')))
 		return (false);
 	if (*(++first_space) == '-')
@@ -56,7 +56,6 @@ static inline bool	is_input_correct(char *line)
 
 char				**validate_room(char *line)
 {
-
 	char			**rd;
 
 	rd = NULL;

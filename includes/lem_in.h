@@ -70,4 +70,6 @@ void			force_quit(void);
 void			copy_etalon_matrix(void);
 void			add_line_to_output(const char *line);
 void			elementary_solution(void);
+void			build_adjacency_matrix(void);
+void			set_ants(void);
 #endif
